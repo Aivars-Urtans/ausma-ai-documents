@@ -75,12 +75,20 @@ class RoomMessage(db.Model):
     timestamp = db.Column(db.DateTime, default=datetime.datetime.utcnow)
 
     def as_dict(self):
+        extensions = [
+            'fenced_code',
+            'codehilite',
+            'tables',
+            'attr_list',
+            'nl2br',
+            'sane_lists',
+        ]
         return {
             "id": self.id,
             "room_id": self.room_id,
             "username": self.username,
             "role": self.role,
-            "content": markdown.markdown(nh3.clean(self.content)),
+            "content": markdown.markdown(nh3.clean(self.content), extensions=extensions),
             "rag_sources": self.rag_sources,
             "timestamp": self.timestamp.isoformat(),
         }
@@ -389,4 +397,8 @@ if __name__ == '__main__':
         db.create_all()
     # p = Thread(target=scheduler)
     # p.start()
+    if args.production:
+        print("Running in production mode.")
+    else:
+        print("Running in debug mode. For production mode add --production to parameters.")
     socketio.run(app, debug=(not args.production), use_reloader=False, allow_unsafe_werkzeug=True, host="0.0.0.0")
