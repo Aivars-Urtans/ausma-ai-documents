@@ -168,14 +168,14 @@ main {
 
 #user_input {
     width: 89%;
-    min-height: 2rem;
+    min-height: 4rem;
     max-height: 20rem;
     background: #3f3f3f;
     border: none;
     color: white;
-    border-radius: 5px;
+    border-radius: 15px;
     font-size: 20px;
-    padding: 0.2rem 0.6rem;
+    padding: 1rem 1rem;
     field-sizing: content;
     resize: vertical;
     overflow: auto;
