@@ -316,6 +316,14 @@ a:visited {
     color:#fa994aff;
 }
 
+pre {
+    background:#313131;
+    border: solid 1px #3f3f3f;
+    border-radius:15px;
+    padding:1rem;
+
+}
+
 
 @media (max-width: 1423px) {
     #Rag-llm {
