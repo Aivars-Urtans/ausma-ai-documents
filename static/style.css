@@ -321,8 +321,9 @@ pre {
     border: solid 1px #3f3f3f;
     border-radius:15px;
     padding:1rem;
-
+     white-space: pre-wrap;
 }
+
 
 
 @media (max-width: 1423px) {
